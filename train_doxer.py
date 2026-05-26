@@ -21,13 +21,13 @@ from torchvision import transforms, models
 # CONFIG
 # =====================================================
 
-CSV_FILE   = r"datasets\images_part_b_subset\metadata.csv"
-IMG_DIR    = r"datasets\images_part_b_subset\images"
+CSV_FILE   = r"datasets\csv\coords.csv"
+IMG_DIR    = r"datasets"
 
-BATCH_SIZE = 32
-EPOCHS     = 30
+BATCH_SIZE = 4
+EPOCHS     = 10
 LR         = 1e-4
-IMG_SIZE   = 224
+IMG_SIZE   = 640
 NUM_WORKERS = 4
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"

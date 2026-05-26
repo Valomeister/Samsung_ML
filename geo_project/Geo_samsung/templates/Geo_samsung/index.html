@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><title>Geo Predictor</title></head>
+<body>
+    <h2>Загрузи фото и укажи реальные координаты</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Предсказать</button>
+    </form>
+</body>
+</html>
