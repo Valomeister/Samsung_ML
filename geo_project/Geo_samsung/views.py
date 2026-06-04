@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 from django.shortcuts import render
 from .forms import PredictForm
-from .model_utils import predict, haversine_distance
+from .model_utils import predict, haversine_distance, build_fig
 from PIL import Image
 
 def index(request):
@@ -25,12 +25,15 @@ def index(request):
             # Ошибка в км
             error_km = haversine_distance(real_lat, real_lon, pred_lat, pred_lon)
 
+            fig_html = build_fig(pil_image, real_lat, real_lon, pred_lat, pred_lon)
+
             context = {
                 'real_lat': real_lat,
                 'real_lon': real_lon,
                 'pred_lat': pred_lat,
                 'pred_lon': pred_lon,
                 'error_km': error_km,
+                'plot': fig_html
             }
             return render(request, 'Geo_samsung/result.html', context)
     else:

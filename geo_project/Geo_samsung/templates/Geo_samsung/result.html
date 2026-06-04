@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head><title>Результат</title></head>
+<head>
+    <title>Результат</title>
+    <style>
+        body {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+            background: #f5f7fb;
+            font-family: Inter, Arial, sans-serif;
+        }
+
+        h2 {
+            margin-bottom: 24px;
+        }
+
+        body > p {
+            background: white;
+            padding: 14px 18px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.05);
+        }
+
+        a {
+            display: inline-block;
+            margin: 20px 0 30px;
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: 600;
+        }
+    </style>
+</head>
 <body>
     <h2>Результат предсказания</h2>
     <p><b>Реальные координаты:</b> широта {{ real_lat }}, долгота {{ real_lon }}</p>
     <p><b>Предсказанные координаты:</b> широта {{ pred_lat }}, долгота {{ pred_lon }}</p>
     <p><b>Ошибка (км):</b> {{ error_km }}</p>
     <a href="{% url 'index' %}">Попробовать снова</a>
+    {{ plot|safe }}
 </body>
 </html>
